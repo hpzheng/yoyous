@@ -1,18 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+</head>
+
 <body>
 
-<br>
-<br>
 
-<center>
-<p>
-<b>
-The yoyous.com site is powered by NGINX to serve the static pages and Node.js to serve the dynamic pages.
-</b>
-</p>
-</center>
+<div class="container">
 
+  <div class="row row-content">
+    <div class="col-xs-12">
+     <p style="padding:40px;"></p>
+     <center>
+      <h2>Welcome to yoyous.com<br><br>
+      悠游美国为七人以下小规模亲友团提供定制美国游服务</h2>
+     </center>
+     <p style="padding:20px;"></p>
+     <center>
+      <a href="home.html" class="btn btn-success btn-lg">Enter Site</a>
+      &nbsp;
+      <a href="home.html" class="btn btn-success btn-lg">进入悠游美国</a>
+     </center>
+     <p style="padding:40px;"></p>
+    </div>
+  </div>
+
+
+  <div class="row row-content" style="background:#ffC080">
+    <div class="col-xs-9 col-xs-push-1">
+      <center> <p> <b>
+	The yoyous.com site is powered by NGINX to serve the static pages and Node.js to serve the dynamic pages.
+      </b> </p> </center>
+    </div>
+    <div class="col-xs-4 col-xs-push-1">
+      <img class="img-responsive" src="img/nginx.png">
+    </div>
+    <div class="col-xs-4 col-xs-push-2">
+      <img class="img-responsive" src="img/nodejs.svg">
+    </div>
+  </div>
+
+
+  <div class="row row-content">
+    <div class="col-xs-12">
 <center>
 <p>
 The button links to test.js. The test.js request is passed through NGINX and then handled by the Node.js server.
@@ -24,6 +57,13 @@ The button links to test.js. The test.js request is passed through NGINX and the
 <button type="button">Go to test.js</button>
 </a>
 </center>
+    </div>
+  </div>
 
+</div>
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
 </body>
 </html>
