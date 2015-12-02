@@ -4,11 +4,11 @@ Updated code for yoyous using NGINX and Node.js
 ## Setting up the server
 1. Install NVM (Node Version Manager)
 
-  curl https://raw.githubusercontent.com/creationix/nvm/v0.20.0/install.sh | bash
-  nvm install 0.10
-  nvm install 4.2.2
-  node -v
-  npm -v
+    curl https://raw.githubusercontent.com/creationix/nvm/v0.20.0/install.sh | bash
+    nvm install 0.10
+    nvm install 4.2.2
+    node -v
+    npm -v
 
 2. Once node/npm is setup, use NPM to install three other package managers: grunt, bower, and yeoman
 
