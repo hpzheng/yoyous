@@ -1,44 +1,91 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app>
 <head>
     <meta charset="utf-8">
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="css/bootstrap-social.css" rel="stylesheet">
 </head>
 
 <body>
 
 
-<div class="container">
+<div class="container" ng-init="
+  days = 12;
+  regions = ['Region 1', 'Region 4'];
+  cost = 19500;
+">
+  <div class="row row-content" style="background:#80C0ff">
+    <div class="col-xs-12">
+     <center>
+      <h2 style="color:white">Welcome to yoyous.com</h2>
+     </center>
+    </div>
+  </div>
+
 
   <div class="row row-content">
     <div class="col-xs-12">
-     <p style="padding:40px;"></p>
+     <p style="padding:4px;"></p>
      <center>
-      <h2>Welcome to yoyous.com<br><br>
-      悠游美国为七人以下小规模亲友团提供定制美国游服务</h2>
+      <h2>悠游美国为七人以下小规模亲友团提供定制美国游服务</h2>
      </center>
-     <p style="padding:20px;"></p>
+     <p style="padding:6px;"></p>
+    </div>
+  </div>
+
+
+  <div class="row row-content" style="background:#A0E0ff">
+    <div class="col-xs-12 col-sm-8">
+      <p><h4>请选择大致的旅行目的地区域</h4></p>
+      <div id="map" style="width: 480px; height: 300px; border: solid 1px #A0E0ff;"></div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <p><h4>典型报价 (两人) *</h4></p>
+      <p>行程天数：<span id="quote_days">{{days}}</span></p>
+      <p>行程目的地：<span id="quote_regions">{{regions}}</span></p>
+      <p>行程典型报价：每人 ¥<span id="quote_cost">{{cost}}</span></p>
+      <p>* 我们的典型报价包括所有交通费用，食宿和门票。根据具体选择，实际行程费用有可能是典型报价的 60% 或更少。</p>
+      <hr>
+      <p><h4>使用社交网络登陆：</h4></p>
+      <div class="nav navbar-nav" style="padding: 10px 10px;">
+	<a class="btn btn-social-icon btn-google-plus" href="http://google.com/+"><i class="fa fa-google-plus"></i></a>
+	<a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
+	<a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin"></i></a>
+	<a class="btn btn-social-icon btn-twitter" href="http://twitter.com/"><i class="fa fa-twitter"></i></a>
+	<a class="btn btn-social-icon btn-youtube" href="http://youtube.com/"><i class="fa fa-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row row-content">
+    <div class="col-xs-12">
+     <p style="padding:4px;"></p>
      <center>
       <a href="home.html" class="btn btn-success btn-lg">Enter Site</a>
       &nbsp;
       <a href="home.html" class="btn btn-success btn-lg">进入悠游美国</a>
      </center>
-     <p style="padding:40px;"></p>
+    </div>
+    <div class="col-xs-12">
+        <p style="padding:10px;"></p>
+        <p align=center>© Copyright 2014-2016 YOYOUS LLC</p>
     </div>
   </div>
 
 
-  <div class="row row-content" style="background:#ffC080">
-    <div class="col-xs-9 col-xs-push-1">
+  <div class="row row-content" style="background:#80C0ff">
+    <div class="col-xs-10 col-xs-push-1">
       <center> <p> <b>
 	The yoyous.com site is powered by NGINX to serve the static pages and Node.js to serve the dynamic pages.
       </b> </p> </center>
     </div>
-    <div class="col-xs-4 col-xs-push-1">
+    <div class="col-xs-3 col-xs-push-2">
       <img class="img-responsive" src="img/nginx.png">
     </div>
-    <div class="col-xs-4 col-xs-push-2">
+    <div class="col-xs-3 col-xs-push-4">
       <img class="img-responsive" src="img/nodejs.svg">
     </div>
   </div>
@@ -46,24 +93,45 @@
 
   <div class="row row-content">
     <div class="col-xs-12">
-<center>
-<p>
-The button links to test.js. The test.js request is passed through NGINX and then handled by the Node.js server.
-</p>
-</center>
-
-<center>
-<a href="test.js">
-<button type="button">Go to test.js</button>
-</a>
-</center>
+      <center>
+	<p>🇺🇸
+	  悠游美国为在美国居住的华人提供工作机会
+	</p>
+	<p>
+	  <a href="test.js" class="btn btn-primary btn-xs">I am interested to become a driver / tour guide</a>
+	</p>
+        <p>联系我们的客服：<a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a></p>
+	<a href="test.js"> <button type="button">Go to test.js</button> </a>
+      </center>
     </div>
   </div>
 
 </div>
 
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/raphael/raphael-min.js"></script>
+  <script src="bower_components/usmap.js/jquery.usmap.js"></script>
+  <script>
+	  $('#map').usmap({
+	    'stateStyles': {
+	      fill: '#025', 
+	      "stroke-width": 1,
+	      'stroke' : '#036'
+	    },
+	    'stateHoverStyles': {
+	      fill: 'teal'
+	    },
+	    
+	    'click' : function(event, data) {
+	      $('#quote_regions')
+	        .text('Click '+data.name+' on map 2')
+	        .stop()
+	        .css('backgroundColor', '#af0')
+	        .animate({backgroundColor: '#ddd'}, 1000);
+	    }
+	  });
+  </script>
 </body>
 </html>

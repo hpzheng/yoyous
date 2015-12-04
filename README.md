@@ -34,7 +34,8 @@ npm install -g sass
 bower install --save jquery
 bower install --save bootstrap
 bower install --save font-awesome
-bower install --save angularjs
+bower install --save USMap
+bower install --save angular
 ```
 
 5. Yeoman is used as standard scaffolding toolkit for creating modern JavaScript applications.
