@@ -1,55 +1,46 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="quoteApp">
 <head>
     <meta charset="utf-8">
     <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet">
     <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/bootstrap-social.css" rel="stylesheet">
+<style>
+th{
+  width:95px
+}
+@media (max-width: 992px) {
+	#enter_site {
+          padding-top:9px !important; padding-bottom:9px !important;
+          padding-left:6px !important; padding-right:6px !important;
+	}
+}
+
+@media (min-width: 768px) {
+	#enter_site {
+          padding-top:9px !important; padding-bottom:9px !important;
+          padding-left:6px !important; padding-right:6px !important;
+	}
+}
+</style>
 </head>
 
 <body>
 
 
-<div class="container" ng-init="
-  days = 12;
-  regions = ['Region 1', 'Region 4'];
-  cost = 19500;
-">
-  <div class="row row-content" style="background:#80C0ff">
-    <div class="col-xs-12">
-     <center>
-      <h2 style="color:white">Welcome to yoyous.com</h2>
-     </center>
-    </div>
-  </div>
 
-
-  <div class="row row-content">
-    <div class="col-xs-12">
-     <p style="padding:4px;"></p>
-     <center>
-      <h2>悠游美国为七人以下小规模亲友团提供定制美国游服务</h2>
-     </center>
-     <p style="padding:6px;"></p>
-    </div>
-  </div>
-
-
-  <div class="row row-content" style="background:#A0E0ff">
+<div class="container" id="qtCtrl" ng-controller="quoteController">
+  <div class="row row-content" style="background:#006dcc">
     <div class="col-xs-12 col-sm-8">
-      <p><h4>请选择大致的旅行目的地区域</h4></p>
-      <div id="map" style="width: 480px; height: 300px; border: solid 1px #A0E0ff;"></div>
+     <center>
+      <h2 style="color:white"><span class="fa fa-car"></span> Welcome to YOYOUS.com <div class="badge">您的美国订制游专家</div></h2>
+      <p style="padding:2px;"></p>
+     </center>
     </div>
     <div class="col-xs-12 col-sm-4">
-      <p><h4>典型报价 (两人) *</h4></p>
-      <p>行程天数：<span id="quote_days">{{days}}</span></p>
-      <p>行程目的地：<span id="quote_regions">{{regions}}</span></p>
-      <p>行程典型报价：每人 ¥<span id="quote_cost">{{cost}}</span></p>
-      <p>* 我们的典型报价包括所有交通费用，食宿和门票。根据具体选择，实际行程费用有可能是典型报价的 60% 或更少。</p>
-      <hr>
-      <p><h4>使用社交网络登陆：</h4></p>
-      <div class="nav navbar-nav" style="padding: 10px 10px;">
+      <p style="padding:2px;"></p>
+      <div class="nav navbar-nav" style="padding: 10px 10px;" align="center">
 	<a class="btn btn-social-icon btn-google-plus" href="http://google.com/+"><i class="fa fa-google-plus"></i></a>
 	<a class="btn btn-social-icon btn-facebook" href="http://www.facebook.com/profile.php?id="><i class="fa fa-facebook"></i></a>
 	<a class="btn btn-social-icon btn-linkedin" href="http://www.linkedin.com/in/"><i class="fa fa-linkedin"></i></a>
@@ -62,76 +53,170 @@
 
   <div class="row row-content">
     <div class="col-xs-12">
-     <p style="padding:4px;"></p>
      <center>
-      <a href="home.html" class="btn btn-success btn-lg">Enter Site</a>
-      &nbsp;
-      <a href="home.html" class="btn btn-success btn-lg">进入悠游美国</a>
+      <h2>悠游美国为七人以下小规模亲友团量身打造 100% 订制美国游服务</h2>
+      <span class="btn btn-sm"><span class="fa fa-group"></span> YOYOUS 旨在服务想要随心所欲进行美国自助游，但在文化和语言方面存在顾虑的中国游客</span>
      </center>
-    </div>
-    <div class="col-xs-12">
-        <p style="padding:10px;"></p>
-        <p align=center>© Copyright 2014-2016 YOYOUS LLC</p>
+     <p style="padding:0px;"></p>
     </div>
   </div>
 
-
-  <div class="row row-content" style="background:#80C0ff">
-    <div class="col-xs-10 col-xs-push-1">
-      <center> <p> <b>
-	The yoyous.com site is powered by NGINX to serve the static pages and Node.js to serve the dynamic pages.
-      </b> </p> </center>
-    </div>
-    <div class="col-xs-3 col-xs-push-2">
-      <img class="img-responsive" src="img/nginx.png">
-    </div>
-    <div class="col-xs-3 col-xs-push-4">
-      <img class="img-responsive" src="img/nodejs.svg">
-    </div>
-  </div>
-
+<form>
 
   <div class="row row-content">
-    <div class="col-xs-12">
+    <div class="col-xs-12 col-sm-8">
+      <div class="panel panel-primary">
+	<div align="center" class="panel-heading"><span class="fa fa-map"></span> 请选择大致的旅行目的地区域</div>
+        <div align="center" class="panel-body">
+	  <div id="map" style="width: 480px; height: 300px; border: solid 0px #A0E0ff;"></div>
+	</div>
+        <div align="left" class="panel-body">
+	  <p><span>初步选定行程活动范围大概包括以下城市及其周边地区，具体细节可进一步定制：</span></p>
+	    {{quote_regions.cities1}}<br>
+	    {{quote_regions.cities2}}<br>
+	    {{quote_regions.cities3}}<br>
+	    {{quote_regions.cities4}}<br>
+	    {{quote_regions.cities5}}<br>
+	    {{quote_regions.cities6}}
+	</div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="panel panel-primary">
+	<div class="panel-heading" align="center"><span class="fa fa-money"></span> 初步估价概览 *</div>
+	<div class="panel-body">
+	  <div>
+	    <table>
+	      <tr><th>亲友团人数:</th> <td><span id="quote_from">
+	      <select id="quote_size" ng-change="updateQuote()" ng-model="qsize">
+		<option value="2">双人</option>
+		<option value="3">三人</option>
+		<option value="4" ng-selected="true">四人</option>
+		<option value="5">五人</option>
+		<option value="6">六人</option>
+	      </select>
+	      </td></tr>
+	      <tr><th>出发地点:</th> <td><span id="quote_from">{{ qfrom }}</span></td></tr>
+	      <tr><th>行程目的地:</th> <td>
+		<div class="checkbox-inline">
+		  <input type="checkbox" name="quoteregions" value="1" ng-click="updateQuote()" ng-model="quote_regions.value1"><span class="grplabel">美东海岸</span></input>
+		</div>
+		<div class="checkbox-inline">
+		  <input type="checkbox" name="quoteregions" value="2" ng-click="updateQuote()" ng-model="quote_regions.value2"><span class="grplabel">美西海岸</span></input>
+		</div>
+		<div class="checkbox-inline">
+		  <input type="checkbox" name="quoteregions" value="3" ng-click="updateQuote()" ng-model="quote_regions.value3"><span class="grplabel">五大湖区</span></input>
+		</div>
+		<div class="checkbox-inline">
+		  <input type="checkbox" name="quoteregions" value="4" ng-click="updateQuote()" ng-model="quote_regions.value4"><span class="grplabel">美东南</span></input>
+		</div>
+		<div class="checkbox-inline">
+		  <input type="checkbox" name="quoteregions" value="5" ng-click="updateQuote()" ng-model="quote_regions.value5"><span class="grplabel">美国中部</span></input>
+		</div>
+		<div class="checkbox-inline">
+		  <input type="checkbox" name="quoteregions" value="6" ng-click="updateQuote()" ng-model="quote_regions.value6"><span class="grplabel">加拿大边境</span></input>
+		</div>
+	      </td></tr>
+	      <tr><th>行程天数:</th> <td><span id="quote_days">{{qdays}}</span>天+往返2天</td></tr>
+	      <tr><th>初步估价:</th> <td>每人 <span id="quote_cost">{{qcost | currency:"RMB¥":0}}</span></td></tr>
+	      <tr><td colspan=2>
+		<p>&nbsp;
+		<p>* 我们给出的各项估价和报价均包含所有交通费用，旅行顾问和私人向导费用，以及所有食宿和景点门票。根据具体选择和需要，实际行程费用有可能是初步估价的 80% 或更少。
+	      </td></tr>
+	      <tr><td colspan=2><table>
+		<tr><th rowspan=4><p align="center">个性估价<br>参考值<br>(每人):</p></th>
+		    <th>节省型</th><td>{{qcost * 0.7 + 2400 | currency:"¥":0}}</td></tr>
+		<tr><th>经济型</th><td>{{qcost * 0.9 + 800  | currency:"¥":0}}</td></tr>
+		<tr><th>豪华型</th><td>{{qcost * 1.1 - 800  | currency:"¥":0}}</td></tr>
+		<tr><th>土豪型</th><td>{{qcost * 1.3 - 2400 | currency:"¥":0}}</td></tr>
+	      </table></td></tr>
+	  </table>
+	</div>
+      </div>
+
       <center>
-	<p>🇺🇸
-	  悠游美国为在美国居住的华人提供工作机会
-	</p>
-	<p>
-	  <a href="test.js" class="btn btn-primary btn-xs">I am interested to become a driver / tour guide</a>
-	</p>
-        <p>联系我们的客服：<a class="btn btn-social-icon" href="mailto:"><i class="fa fa-envelope-o"></i></a></p>
-	<a href="test.js"> <button type="button">Go to test.js</button> </a>
+      <div class="btn-group" role="group" aria-label="...">
+          <a href="home.html" id="enter_site" class="btn btn-primary btn-lg">Enter Site</a>
+          <a href="home.html" id="enter_site" class="btn btn-success btn-lg">进入悠游美国</a>
+      </div>
       </center>
     </div>
   </div>
 
+
+</form>
+
+
+<hr>
+  <div class="row row-content">
+    <div class="col-xs-12 col-sm-8">
+       悠游美国为在美国居住的华人提供工作机会
+      <a href="test.js" class="btn btn-primary btn-xs">I am interested to become a driver / tour guide</a>
+      <p style="padding:2px;"></p>
+    </div>
+    <div class="col-xs-12 col-sm-4"><center>
+       联系我们的客服：<a class="btn btn-social-icon" href="mailto:dust.zheng@gmail.com"><i class="fa fa-envelope-o"></i></a></center>
+    </div>
+  </div>
+
+  <div class="row row-content" style="background:#006dcc">
+    <div class="col-xs-12 col-sm-9" style="color:white">
+	<p>The yoyous.com website is powered by NGINX to serve the static pages and Node.js to serve the dynamic pages</p>
+	<p>The yoyous.com website has been tested on the following browsers:
+	<ul>
+	  <li>Microsoft Edge: Version 25.10586.0.0</li>
+	  <li>Apple Safari: Version 8.0.8</li>
+	  <li>Mozilla Firefox: Version 42.0</li>
+	  <li>Google Chrome: Version 47.0.2526.80</li>
+	  <li>Tencent QQ browser: Version 9.2.1</li>
+	</ul></p>
+    </div>
+    <div class="col-xs-5 col-xs-push-4 col-sm-3 col-sm-push-0" align="center">
+      <img class="img-responsive" src="img/nginx.png">
+      <img class="img-responsive" src="img/nodejs.svg">
+    </div>
+    <div class="col-xs-8">
+	<a href="test.js"> <button type="button">Go to test.js</button> </a>
+	<button ng-click="chiliSpicy()">Chili</button>
+	<button ng-click="jalapenoSpicy()">Jalapeño</button>
+	<p>The food is {{spice}} spicy!</p>
+    </div>
+    <div class="col-xs-4" style="color:white">
+        <p align=center>© Copyright 2014-2016 YOYOUS L.L.C.</p>
+    </div>
+  </div>
+
+
+
 </div>
+
 
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="bower_components/angular/angular.min.js"></script>
   <script src="bower_components/raphael/raphael-min.js"></script>
   <script src="bower_components/usmap.js/jquery.usmap.js"></script>
+  <script src="js/usquote.js"></script>
   <script>
-	  $('#map').usmap({
-	    'stateStyles': {
-	      fill: '#025', 
-	      "stroke-width": 1,
-	      'stroke' : '#036'
-	    },
-	    'stateHoverStyles': {
-	      fill: 'teal'
-	    },
-	    
-	    'click' : function(event, data) {
-	      $('#quote_regions')
-	        .text('Click '+data.name+' on map 2')
-	        .stop()
-	        .css('backgroundColor', '#af0')
-	        .animate({backgroundColor: '#ddd'}, 1000);
-	    }
-	  });
+  $('#map').usmap({
+    'stateStyles': {
+      fill: '#025', 
+      "stroke-width": 1,
+      'stroke' : '#036'
+    },
+  
+    'stateHoverStyles': {
+      fill: 'teal'
+    },
+    
+    'click' : function(event, data) {
+      var qt = angular.element($('#qtCtrl')).scope();
+      qt.updateQuote(data.name);
+      qt.$apply();
+    }
+  });
   </script>
+
+
 </body>
 </html>
