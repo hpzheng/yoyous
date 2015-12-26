@@ -41,5 +41,23 @@ Updated code for yoyous using NGINX and Node.js
 5. Yeoman is used as standard scaffolding toolkit for creating modern JavaScript applications.
 
 6. Grunt is The "JavaScript Task Runner" based on configuration.
+    ```
+    npm install -g grunt-cli
+    npm install grunt -save-dev
+    npm install grunt-contrib-jshint --save-dev
+    npm install jshint-stylish --save-dev
+    npm install time-grunt --save-dev
+    npm install jit-grunt --save-dev
+
+    npm install grunt-contrib-copy --save-dev
+    npm install grunt-contrib-clean --save-dev
+    npm install grunt-contrib-concat --save-dev
+    npm install grunt-contrib-cssmin --save-dev
+    npm install grunt-contrib-uglify --save-dev
+    npm install grunt-filerev --save-dev
+    npm install grunt-usemin --save-dev
+    npm install grunt-contrib-watch --save-dev
+    npm install grunt-contrib-connect --save-dev
+    ```
 
 7. Gulp is another JavaScript task runner "preferring code over configuration".
